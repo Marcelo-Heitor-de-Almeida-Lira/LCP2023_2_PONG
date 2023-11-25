@@ -1,7 +1,5 @@
-# LCP2023_2_PONG
+#Grupo de LCP2023 - Trabalho Pong
 
-Grupo de LCP2023 - Trabalho Pong
-
-Matheus Takashi Maruoka Vieira
-Marcio Alves Alho Junior
-Marcelo Heitor de Almeida Lira
+#Matheus Takashi Maruoka Vieira
+#Marcio Alves Alho Junior
+#Marcelo Heitor de Almeida Lira
