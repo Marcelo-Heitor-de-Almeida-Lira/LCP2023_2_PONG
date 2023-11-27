@@ -23,7 +23,7 @@ score_text_rect.center = (680, 50)
 # speed text
 
 speed_font = pygame.font.Font('assets/PressStart2P.ttf', 40)
-speed_text = score_font.render('speed:', True, COLOR_WHITE, COLOR_BLACK)
+speed_text = speed_font.render('speed:', True, COLOR_WHITE, COLOR_BLACK)
 speed_text_rect = speed_text.get_rect()
 speed_text_rect.bottomleft = (50, 75)
 
