@@ -23,7 +23,8 @@ score_text_rect.center = (680, 50)
 # speed text
 
 speed_font = pygame.font.Font('assets/PressStart2P.ttf', 40)
-speed_text = speed_font.render('speed:', True, COLOR_WHITE, COLOR_BLACK)
+speed_text = (speed_font
+              .render('speed:', True, COLOR_WHITE, COLOR_BLACK))
 speed_text_rect = speed_text.get_rect()
 speed_text_rect.bottomleft = (50, 75)
 
@@ -203,7 +204,7 @@ while game_loop:
 
         # This makes the ball don't enter the paddle
         if 1180 <= ball_x < 1230:
-            if ball_y <= player_2_y <= ball_y + 20:
+            if ball_y <= player_2_y <= ball_y + 20 or player_2_y + 75 >= ball_y >= player_2_y:
 
                 ball_dy *= -1
                 ball_y = player_2_y - 21
@@ -215,6 +216,9 @@ while game_loop:
                 ball_y = player_2_y + 151
                 ball_dx *= -1
                 bounce_sound_effect.play()
+
+        # If the ball is nearest to the score line it doesn't back
+
         elif ball_x + 20 > 1205 or 1205 <= ball_x < 1230:
             if ball_y <= player_2_y <= ball_y + 20:
 
