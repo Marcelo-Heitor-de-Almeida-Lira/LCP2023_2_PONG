@@ -136,7 +136,7 @@ while game_loop:
         # This makes the ball don't enter the paddle
 
         if 50 <= ball_x < 100:
-            if player_1_y <= ball_y + 20 and player_1_y >= ball_y:
+            if ball_y + 20 >= player_1_y >= ball_y:
 
                 ball_dy *= -1
                 ball_y = player_1_y - 21
@@ -152,8 +152,8 @@ while game_loop:
                 bounce_sound_effect.play()
 
         # If the ball is nearest to the score line it doesn't back
-        elif ball_x < 50 or 50 <=ball_x + 20 < 75:
-            if player_1_y <= ball_y + 20 and player_1_y >= ball_y:
+        elif ball_x < 50 or 50 <= ball_x + 20 < 75:
+            if ball_y <= player_1_y <= ball_y + 20:
 
                 ball_dy *= -1
                 ball_y = player_1_y - 21
@@ -204,7 +204,7 @@ while game_loop:
 
         # This makes the ball don't enter the paddle
         if 1180 <= ball_x < 1230:
-            if player_2_y <= ball_y + 20 and player_2_y >= ball_y:
+            if ball_y <= player_2_y <= ball_y + 20:
 
                 ball_dy *= -1
                 ball_y = player_2_y - 21
@@ -217,7 +217,7 @@ while game_loop:
                 ball_dx *= -1
                 bounce_sound_effect.play()
         elif ball_x + 20 > 1205 or 1205 <= ball_x < 1230:
-            if player_2_y <= ball_y + 20 and player_2_y >= ball_y:
+            if ball_y <= player_2_y <= ball_y + 20:
 
                 ball_dy *= -1
                 ball_y = player_2_y - 21
@@ -274,11 +274,11 @@ while game_loop:
         elif player_1_y >= 570:
             player_1_y = 570
 
-        # player 2 collides whith upper wall
+        # player 2 collides with upper wall
         if player_2_y <= 100:
-          player_2_y = 100
+            player_2_y = 100
 
-        # player 2 collides whith lower wall
+        # player 2 collides with lower wall
         if player_2_y >= 570:
             player_2_y = 570
 
