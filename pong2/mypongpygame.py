@@ -20,6 +20,13 @@ score_text = score_font.render('00 x 00', True, COLOR_WHITE, COLOR_BLACK)
 score_text_rect = score_text.get_rect()
 score_text_rect.center = (680, 50)
 
+# speed text
+
+speed_font = pygame.font.Font('assets/PressStart2P.ttf', 40)
+speed_text = score_font.render('speed:', True, COLOR_WHITE, COLOR_BLACK)
+speed_text_rect = speed_text.get_rect()
+speed_text_rect.bottomleft = (50, 75)
+
 # victory text
 victory_font = pygame.font.Font('assets/PressStart2P.ttf', 100)
 victory_text = victory_font .render('VICTORY', True, COLOR_WHITE, COLOR_BLACK)
@@ -271,20 +278,33 @@ while game_loop:
 
         # player 2 "Artificial Intelligence"
 
-        if ball_dy > 0 or ball_dy < 0 or ball_dy == 0:
-            player_2_y = player_2_y + player_2_dy
-            if player_2_y + 150 == 720:
-                player_2_dy *= -1
-            if player_2_y == 100:
-                player_2_dy *= -1
+        if speed % 2 == 0:
+            if ball_dy > 0 or ball_dy < 0 or ball_dy == 0:
+                player_2_y += player_2_dy
+                if player_2_y + 150 == 720:
+                    player_2_dy *= -1
+                if player_2_y == 100:
+                    player_2_dy *= -1
+
+        elif speed % 2 != 0:
+            if player_2_y >= ball_y or player_2_y + 75 >= ball_y + 20 <= player_2_y:
+                player_2_y -= 5
+            elif player_2_y + 150 <= ball_y + 20 or player_2_y + 75 <= ball_y <= player_2_y + 150:
+                player_2_y += 5
+
         # update score hud
+
         score_text = score_font.render(str(score_1) + ' x ' + str(score_2), True, COLOR_WHITE, COLOR_BLACK)
+
+        # update speed hud
+        speed_text = speed_font.render('speed:' + str(speed), True, COLOR_WHITE, COLOR_BLACK)
 
         # drawing objects
         screen.blit(ball, (ball_x, ball_y))
         screen.blit(player_1, (50, player_1_y))
         screen.blit(player_2, (1180, player_2_y))
         screen.blit(score_text, score_text_rect)
+        screen.blit(speed_text, speed_text_rect)
     else:
         # drawing victory
         screen.fill(COLOR_BLACK)
