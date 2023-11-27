@@ -222,8 +222,6 @@ while game_loop:
 
         # scoring points
         if ball_x < -50 or ball_x > 1320:
-            ball_x = 640
-            ball_y = 360
             if ball_x < -50:
                 ball_dx = -5
                 ball_dy = -5
@@ -232,6 +230,8 @@ while game_loop:
                 ball_dx = 5
                 ball_dy = 5
                 score_1 += 1
+            ball_x = 640
+            ball_y = 360
             ball_dy *= -1
             ball_dx *= -1
             speed = 60
