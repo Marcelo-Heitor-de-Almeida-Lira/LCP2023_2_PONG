@@ -30,15 +30,11 @@ victory_text_rect.center = (450, 350)
 bounce_sound_effect = pygame.mixer.Sound('assets/bounce.wav')
 scoring_sound_effect = pygame.mixer.Sound('assets/258020__kodack__arcade-bleep-sound.wav')
 
-# player 1
-player_1 = pygame.image.load("assets/player.png")
-player_1_y = 325
+# player 1 and player 2 (robot)
+player_1 = player_2 = pygame.image.load("assets/player.png")
+player_1_y = player_2_y = 325
 player_1_move_up = False
 player_1_move_down = False
-
-# player 2 - robot
-player_2 = pygame.image.load("assets/player.png")
-player_2_y = 325
 player_2_dy = 5
 
 # game speed
@@ -84,12 +80,8 @@ while game_loop:
         # clear screen
         screen.fill(COLOR_BLACK)
 
-        # ball collision with the lower wall
-        if ball_y > 700:
-            ball_dy *= -1
-            bounce_sound_effect.play()
-        # collision with the upper wall
-        elif ball_y <= 100:
+        # ball collision with the lower/upper wall
+        if ball_y > 700 or ball_y <= 100:
             ball_dy *= -1
             bounce_sound_effect.play()
 
@@ -229,24 +221,19 @@ while game_loop:
                 bounce_sound_effect.play()
 
         # scoring points
-        if ball_x < -50:
+        if ball_x < -50 or ball_x > 1320:
             ball_x = 640
             ball_y = 360
-            ball_dx = -5
-            ball_dy = -5
+            if ball_x < -50:
+                ball_dx = -5
+                ball_dy = -5
+                score_2 += 1
+            elif ball_x > 1320:
+                ball_dx = 5
+                ball_dy = 5
+                score_1 += 1
             ball_dy *= -1
             ball_dx *= -1
-            score_2 += 1
-            speed = 60
-            scoring_sound_effect.play()
-        elif ball_x > 1320:
-            ball_x = 640
-            ball_y = 360
-            ball_dx = 5
-            ball_dy = 5
-            ball_dy *= -1
-            ball_dx *= -1
-            score_1 += 1
             speed = 60
             scoring_sound_effect.play()
 
