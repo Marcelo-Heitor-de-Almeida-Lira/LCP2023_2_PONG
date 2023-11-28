@@ -1,4 +1,4 @@
-# Grupo de LCP2023 - Trabalho Pong
+# Grupo de LCP2023
 
 # Matheus Takashi Maruoka Vieira
 # Marcio Alves Alho Junior  (Fez os Slides)
