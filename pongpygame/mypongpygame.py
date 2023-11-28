@@ -16,7 +16,7 @@ pygame.display.set_caption("MyPong - PyGame Edition - 2021.01.30")
 
 # score text
 score_font = pygame.font.Font('assets/PressStart2P.ttf', 44)
-score_text = score_font.render('00 x 00', True, COLOR_WHITE, COLOR_BLACK)
+score_text = score_font.render('00 x 00', True, COLOR_WHITE,COLOR_BLACK)
 score_text_rect = score_text.get_rect()
 score_text_rect.center = (680, 50)
 
