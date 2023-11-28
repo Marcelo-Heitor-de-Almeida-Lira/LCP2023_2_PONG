@@ -8,7 +8,7 @@ pygame.init()
 COLOR_BLACK = (0, 0, 0)
 COLOR_WHITE = (255, 255, 255)
 
-SCORE_MAX = 5
+SCORE_MAX = 10
 
 size = (1280, 720)
 screen = pygame.display.set_mode(size)
@@ -16,7 +16,7 @@ pygame.display.set_caption("MyPong - PyGame Edition - 2021.01.30")
 
 # score text
 score_font = pygame.font.Font('assets/PressStart2P.ttf', 44)
-score_text = score_font.render('00 x 00', True, COLOR_WHITE,COLOR_BLACK)
+score_text = score_font.render('00 x 00', True, COLOR_WHITE,  COLOR_BLACK)
 score_text_rect = score_text.get_rect()
 score_text_rect.center = (680, 50)
 
@@ -285,9 +285,9 @@ while game_loop:
         if speed % 2 == 0:
             if ball_dy > 0 or ball_dy < 0 or ball_dy == 0:
                 player_2_y += player_2_dy
-                if player_2_y + 150 == 720:
+                if player_2_y + 150 >= 720:
                     player_2_dy *= -1
-                if player_2_y == 100:
+                if player_2_y <= 100:
                     player_2_dy *= -1
 
         elif speed % 2 != 0:
