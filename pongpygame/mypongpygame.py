@@ -285,9 +285,9 @@ while game_loop:
         if speed % 2 == 0:
             if ball_dy > 0 or ball_dy < 0 or ball_dy == 0:
                 player_2_y += player_2_dy
-                if player_2_y + 150 == 720:
+                if player_2_y + 150 >= 720:
                     player_2_dy *= -1
-                if player_2_y == 100:
+                if player_2_y <= 100:
                     player_2_dy *= -1
 
         elif speed % 2 != 0:
